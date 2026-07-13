@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ cfg.project_title }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+{% import "_tableau_embed.html" as tableau %}
+
+<div class="grain"></div>
+
+<header class="nav">
+  <a class="nav__brand" href="#home">
+    <span class="nav__mark" aria-hidden="true"></span>
+    Cosmetics&nbsp;Insights
+  </a>
+  <nav class="nav__links">
+    <a href="#home">Home</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#story">Story</a>
+    <a href="#about">About</a>
+    <a class="nav__github" href="{{ cfg.github_repo_url }}" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ HOME ============ -->
+  <section id="home" class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">Tableau Project</p>
+      <h1 class="hero__title">
+        {{ cfg.project_title }}
+      </h1>
+      <p class="hero__tagline">{{ cfg.project_tagline }}</p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#dashboard">View Dashboard</a>
+        <a class="btn btn--ghost" href="#story">View Story</a>
+        <a class="btn btn--text" href="{{ cfg.github_repo_url }}" target="_blank" rel="noopener">Repository&nbsp;→</a>
+      </div>
+    </div>
+
+    <!-- Signature element: KPI "swatch pans" styled like an eyeshadow palette -->
+    <div class="palette" role="list" aria-label="Key metrics">
+      {% for kpi in cfg.kpis %}
+      <div class="pan pan--{{ kpi.tone }}" role="listitem" style="--i: {{ loop.index0 }}">
+        <div class="pan__well">
+          <span class="pan__value">{{ kpi.value }}</span>
+        </div>
+        <span class="pan__label">{{ kpi.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ============ SCOPE ============ -->
+  <section class="scope">
+    <div class="scope__eyebrow">Project Overview</div>
+    <div class="scope__grid">
+      <h2 class="scope__heading">What this project looks at</h2>
+      <p class="scope__body">
+        This dashboard looks at a cosmetics product dataset to understand pricing,
+        how many products each brand offers, which categories sell the most, and
+        which skin types products are made for. The goal is to see patterns across
+        brands and categories using simple charts and filters.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD ============ -->
+  <section id="dashboard" class="embed-section">
+    <div class="embed-section__head">
+      <span class="embed-section__index">01</span>
+      <div>
+        <h2>Dashboard</h2>
+        <p>Brand pricing, category revenue, and skin-type distribution — filterable in real time.</p>
+      </div>
+      <a class="btn btn--ghost btn--small" href="{{ embeds.dashboard.view_url }}" target="_blank" rel="noopener">Open in Tableau Public&nbsp;→</a>
+    </div>
+    <div class="frame">
+      {{ tableau.tableau_embed(embeds.dashboard) }}
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section id="story" class="embed-section embed-section--alt">
+    <div class="embed-section__head">
+      <span class="embed-section__index">02</span>
+      <div>
+        <h2>Story</h2>
+        <p>A guided walkthrough of the findings, chapter by chapter.</p>
+      </div>
+      <a class="btn btn--ghost btn--small" href="{{ embeds.story.view_url }}" target="_blank" rel="noopener">Open in Tableau Public&nbsp;→</a>
+    </div>
+    <div class="frame">
+      {{ tableau.tableau_embed(embeds.story) }}
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="about">
+    <div class="about__grid">
+      <div>
+        <div class="scope__eyebrow">About the project</div>
+        <h2 class="about__heading">Dataset &amp; tools</h2>
+        <p class="about__body">{{ cfg.dataset_description }}</p>
+
+        <dl class="about__meta">
+          <div>
+            <dt>Tools used</dt>
+            <dd>{{ cfg.tools_used | join(', ') }}</dd>
+          </div>
+          <div>
+            <dt>Author{{ 's' if cfg.authors|length > 1 else '' }}</dt>
+            <dd>{{ cfg.authors | join(', ') }}</dd>
+          </div>
+          <div>
+            <dt>Tableau Public profile</dt>
+            <dd><a href="{{ cfg.tableau_profile_url }}" target="_blank" rel="noopener">View profile&nbsp;→</a></dd>
+          </div>
+          {% if cfg.demo_video_url %}
+          <div>
+            <dt>Demo video</dt>
+            <dd><a href="{{ cfg.demo_video_url }}" target="_blank" rel="noopener">Watch&nbsp;→</a></dd>
+          </div>
+          {% endif %}
+        </dl>
+      </div>
+
+      <div class="about__card">
+        <p class="about__card-label">Skin-type coverage</p>
+        <div class="swatchbar" aria-hidden="true">
+          <span class="swatchbar__seg" style="--w:22%"></span>
+          <span class="swatchbar__seg swatchbar__seg--b" style="--w:24%"></span>
+          <span class="swatchbar__seg swatchbar__seg--c" style="--w:18%"></span>
+          <span class="swatchbar__seg swatchbar__seg--d" style="--w:20%"></span>
+          <span class="swatchbar__seg swatchbar__seg--e" style="--w:16%"></span>
+        </div>
+        <p class="about__card-note">Combination, Dry, Normal, Oily, Sensitive — replace with your real numbers.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>{{ cfg.project_title }} — built with Tableau Public &amp; Flask.</p>
+  <a href="{{ cfg.github_repo_url }}" target="_blank" rel="noopener">Source on GitHub</a>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

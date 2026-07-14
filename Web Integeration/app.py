@@ -10,7 +10,7 @@ CONFIG = {
     "tableau_story_view": "Story-CosmeticsInsights",
 
     "tableau_profile_url": "https://public.tableau.com/app/profile/mohit.mamgain6376/vizzes",
-    "github_repo_url": "https://github.com/yourusername/Cosmetics-Insights-Analysis",
+    "github_repo_url": "https://github.com/Mohitmamgain01/Cosmetics-Insights-Analysis",
 
     # ---- Headline content ----
     "project_title": "Cosmetics Insights Analysis",
@@ -22,7 +22,7 @@ CONFIG = {
    
     "kpis": [
         {"label": "Total Products", "value": "1,472", "tone": "gold"},
-        {"label": "Total Brands", "value": "126", "tone": "rose"},
+        {"label": "Total Brands", "value": "116", "tone": "rose"},
         {"label": "Skin Types Covered", "value": "5", "tone": "gold"},
     ],
 

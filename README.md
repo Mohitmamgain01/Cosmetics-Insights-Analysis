@@ -92,7 +92,7 @@ Cosmetic-Insights-Analysis/
 
 ## 🔗 Links
 
-- **GitHub Repository:** [View Github Repository](https://github.com/Mohitmamgain01/Cosmetic-Insights-Analysis)
+- **GitHub Repository:** [View Github Repository](https://github.com/Mohitmamgain01/Cosmetics-Insights-Analysis)
 - **Tableau Public Profile:** [View Tableau Profile](https://public.tableau.com/app/profile/mohit.mamgain6376/vizzes)
 - **Tableau Dashboard:** [View Tableau Dashboard](https://public.tableau.com/app/profile/mohit.mamgain6376/viz/Cosmetics_insights_analysisDashboard/Dashboard-CosmeticsInsights)
 - **Tableau Story:** [View Tableau Story](https://public.tableau.com/app/profile/mohit.mamgain6376/viz/Cosmetics_insights_analysisStory/Story-CosmeticsInsights)

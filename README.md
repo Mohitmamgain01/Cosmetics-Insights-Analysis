@@ -61,7 +61,7 @@ Cosmetic-Insights-Analysis/
 │   ├── Top 10 brands with cosmetic count.png
 │   └── Total products, brands and skin types.png
 │
-│── Web Integeration/
+│── Web Integration/
 │   ├── app.py
 │   ├── README.md
 │   ├── templates/

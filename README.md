@@ -104,7 +104,7 @@ Cosmetic-Insights-Analysis/
 
 **Mohit Mamgain**
 
-**Domain: Domain: Data Analytics, Business Intelligence & Tableau**
+**Domain: Data Analytics, Business Intelligence & Tableau**
 
 ---
 

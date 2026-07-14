@@ -3,6 +3,7 @@
 ```bash
 git clone https://github.com/Mohitmamgain01/Cosmetic-Insights-Analysis.git
 cd Cosmetic-Insights-Analysis
+cd "Web Integeration"    
 pip install flask
 python app.py
 ```

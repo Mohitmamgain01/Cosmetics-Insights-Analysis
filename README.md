@@ -96,7 +96,7 @@ Cosmetic-Insights-Analysis/
 - **Tableau Public Profile:** [View Tableau Profile](https://public.tableau.com/app/profile/mohit.mamgain6376/vizzes)
 - **Tableau Dashboard:** [View Tableau Dashboard](https://public.tableau.com/app/profile/mohit.mamgain6376/viz/Cosmetics_insights_analysisDashboard/Dashboard-CosmeticsInsights)
 - **Tableau Story:** [View Tableau Story](https://public.tableau.com/app/profile/mohit.mamgain6376/viz/Cosmetics_insights_analysisStory/Story-CosmeticsInsights)
-- **Demo Link:** 
+- **Demo Link:** [View Demo Video](https://drive.google.com/drive/folders/1tVenfjOp7VQKmmnQ1qMOpWKsEtc1QGWS?usp=sharing)
 
 ---
 
